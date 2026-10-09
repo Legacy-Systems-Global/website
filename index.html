@@ -4,14 +4,37 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Legacy Systems Global" />
-    <title>Legacy Systems Global</title>
+    <meta name="description" content="Legacy Systems. We accumulate." />
+    <meta name="theme-color" content="#0A1214" />
+    <title>Legacy Systems</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet" />
   </head>
-  <body class="min-h-screen bg-white text-neutral-900 antialiased">
-    <main class="mx-auto flex min-h-screen max-w-3xl flex-col justify-center px-6">
-      <h1 class="text-4xl font-semibold tracking-tight">Legacy Systems Global</h1>
-      <p class="mt-4 text-lg text-neutral-600">Site coming soon.</p>
-    </main>
+  <body class="m-0 bg-ink text-paper antialiased">
+    <div class="flex min-h-screen flex-col items-center px-6">
+      <div class="flex w-full max-w-[640px] flex-1 flex-col">
+        <header class="flex flex-col items-center gap-[22px] pt-[clamp(72px,14vh,140px)] pb-14 text-center">
+          <svg class="size-14" width="56" height="56" viewBox="0 0 450 450" fill="none" aria-hidden="true">
+            <path d="M441 1C445.418 1 449 4.58172 449 9V369C449 371.122 448.158 373.157 446.657 374.657L374.657 446.657C373.157 448.158 371.122 449 369 449H9C4.58172 449 1 445.418 1 441V81C1 78.8783 1.84248 76.8431 3.34277 75.3428L75.3428 3.34277L75.6309 3.06934C77.0983 1.74069 79.011 1 81 1H441ZM17 84.3145V433H361V100.314L305 156.314V369C305 373.418 301.418 377 297 377H81C76.5817 377 73 373.418 73 369V28.3145L17 84.3145ZM100.314 361H289V305H156.314L100.314 361ZM161 289H289V161H161V289ZM161 145H293.686L349.686 89H161V145ZM377 421.686L433 365.686V17H89V349.686L145 293.686V81C145 76.5817 148.582 73 153 73H369C373.418 73 377 76.5817 377 81V421.686Z" fill="#9FCBC3" />
+          </svg>
+          <div class="flex w-full justify-center" id="wordmark-wrap">
+            <h1 class="wordmark" id="wordmark">Legacy Systems<span class="wordmark-grain" aria-hidden="true">Legacy Systems</span></h1>
+          </div>
+          <h2 class="m-0 mb-[22px] font-display text-[15px]/[1.7] font-normal tracking-[.14em] text-pretty text-bright uppercase">We accumulate™</h2>
+        </header>
+
+        <div class="h-px bg-teal/22"></div>
+
+        <section class="flex flex-col gap-2.5 pt-11">
+          <a href="mailto:submit@legacysystems.global" class="self-center font-mono text-sm/[1.7] text-teal transition-colors hover:text-bright">submit@legacysystems.global</a>
+        </section>
+
+        <footer class="mt-auto flex flex-wrap justify-between gap-3 pt-24 pb-10 font-mono text-[10px]/[1.6] tracking-[.14em] text-paper/36 uppercase">
+          <span>©2026</span>
+        </footer>
+      </div>
+    </div>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

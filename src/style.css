@@ -1,1 +1,75 @@
 @import "tailwindcss";
+
+@theme {
+  --color-ink: #0a1214;
+  --color-paper: #d3dedc;
+  --color-bright: #e6f0ee;
+  --color-teal: #9fcbc3;
+
+  --font-display: "Eurostile", "Michroma", Arial, sans-serif;
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+@layer base {
+  html {
+    background: var(--color-ink);
+  }
+  body {
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--color-teal);
+    color: var(--color-ink);
+  }
+}
+
+/* Wordmark: glowing type with animated film grain clipped to the letters.
+   Font size is fitted to the column width in src/main.js; the clamp is the no-JS fallback. */
+.wordmark {
+  position: relative;
+  display: inline-block;
+  margin: 0 -0.1em 0 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(28px, 8.4vw, 54px);
+  line-height: 1.1;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--color-bright);
+  -webkit-text-stroke: 0.025em var(--color-bright);
+  text-shadow:
+    0 0 0.12em rgb(159 203 195 / 0.55),
+    0 0 0.5em rgb(159 203 195 / 0.28),
+    0 0 1.4em rgb(159 203 195 / 0.14);
+}
+
+.wordmark-grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  color: transparent;
+  text-shadow: none;
+  -webkit-text-stroke: 0.025em transparent;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.04 0 0 0 0 0.07 0 0 0 0 0.08 0 0 0 2.2 -0.9'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-size: 180px 180px;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: ls-grain 0.9s steps(1) infinite;
+}
+
+@keyframes ls-grain {
+  0% { background-position: 0 0; }
+  20% { background-position: -37px 21px; }
+  40% { background-position: 52px -44px; }
+  60% { background-position: -18px 63px; }
+  80% { background-position: 71px 9px; }
+  100% { background-position: -9px -58px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wordmark-grain {
+    animation: none;
+  }
+}

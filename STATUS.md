@@ -24,11 +24,10 @@ Not deployed. When released it will be at https://legacy-systems-global.github.i
 Release: PR `dev` → `main`, then `gh workflow run deploy.yml --ref main`.
 
 ## Pending and blockers
-- Content brief: audience, sections, brand — pending (see PROJECT.md first-build plan)
 - Custom domain: none chosen; if added, switch `base` in `vite.config.js` to `'/'`
 - Rams.ai GitHub App: not installed (no install URL configured) — add this repo manually
 - Pushing: SSH to GitHub was denied from the setup shell (key not loaded in ssh-agent), so this repo's remote uses HTTPS
 - No lint or tests configured yet
 
 ## Next action
-Get the content brief from Alex, then build the home page on `dev`.
+Landing page (from claude.ai design "Legacy Systems Landing v2") built and merged to `main`; not yet deployed. Open question: contact address — page uses `submit@legacysystems.global` (design linked `touch@`).
