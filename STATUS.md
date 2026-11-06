@@ -53,3 +53,7 @@ The operating-system index and five internal destinations now share an MS-DOS-st
 ## Release revision — independent preferences and newsletter
 
 System preference is now a bottom banner, with no newsletter content or modal. Choosing either option hides it for the tab; the header preference control and footer preference link reopen it. The newsletter has its own dialog, automatically invited five seconds after page load, once per audience per tab. It waits if another dialog, navigation panel, or active form input would be interrupted. Newsletter and preference choices are independent. No real email subscription service is connected. Released through PR #8; Pages deployment 42290028107 succeeded. Public homepage and terminal verified HTTP 200. Independent banner and timed newsletter were verified locally.
+
+## Logo release
+
+Updated the shared header to the supplied `LSG_Logo.svg` at `public/assets/lsg-logo.svg`, preserving its 1261:450 aspect ratio. Release PR #10 merged; Pages deployment `42297133154` succeeded. Public homepage and SVG verified HTTP 200; the published SVG matches the supplied file byte-for-byte.
