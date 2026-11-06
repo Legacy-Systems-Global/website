@@ -1,0 +1,104 @@
+[
+  {
+    "name": "Standard Issue Uniform, Navy",
+    "category": "Uniforms",
+    "price": "Payroll deducted",
+    "description": "Wrinkle-free and stain-resistant, fitted to the measurements in your file. Worn Monday through Sunday."
+  },
+  {
+    "name": "Casual Friday Uniform, Navy",
+    "category": "Uniforms",
+    "price": "Payroll deducted",
+    "description": "Identical to the standard uniform. Worn with a sense of ease."
+  },
+  {
+    "name": "Perpetuity Fleece Vest",
+    "category": "Uniforms",
+    "price": "$0",
+    "description": "Vests at 10 years of service."
+  },
+  {
+    "name": "\"Your Badge Is Your Friend\" Lanyard",
+    "category": "Uniforms",
+    "price": "$12",
+    "description": "Breakaway clasp available upon request, review, and approval."
+  },
+  {
+    "name": "2027 Fiscal Wall Calendar",
+    "category": "Calendars",
+    "price": "$18",
+    "description": "Thirteen months. Founders' Day observed daily."
+  },
+  {
+    "name": "A Year of Gratitude Desk Calendar",
+    "category": "Calendars",
+    "price": "$14",
+    "description": "365 reminders of everything you've been given."
+  },
+  {
+    "name": "Employee Handbook, Hardcover",
+    "category": "Handbooks",
+    "price": "$40",
+    "description": "The complete edition. Read-only."
+  },
+  {
+    "name": "Employee Handbook, Pocket Edition",
+    "category": "Handbooks",
+    "price": "$25",
+    "description": "For the rare moments you are away from your desk."
+  },
+  {
+    "name": "Employee Handbook, Annotated",
+    "category": "Handbooks",
+    "price": "—",
+    "description": "Unavailable."
+  },
+  {
+    "name": "Hours Ledger Notebook",
+    "category": "Productivity Tools",
+    "price": "$9",
+    "description": "Pre-numbered pages. Please do not remove pages."
+  },
+  {
+    "name": "Focus Headphones",
+    "category": "Productivity Tools",
+    "price": "$180",
+    "description": "Active noise cancellation. Certain frequencies exempt."
+  },
+  {
+    "name": "Desk Clock, No Hour Hand",
+    "category": "Productivity Tools",
+    "price": "$35",
+    "description": "Time is a shared resource."
+  },
+  {
+    "name": "IC9000 Starter Kit",
+    "category": "Productivity Tools",
+    "price": "$299",
+    "description": "Journal, interval timer, and your first recalibration. Level assigned at checkout."
+  },
+  {
+    "name": "\"Just\" Vitamins Staff Blend",
+    "category": "Wellness",
+    "price": "Complimentary",
+    "description": "Taken with breakfast, as directed."
+  },
+  {
+    "name": "Front Running Insider, Staff Edition",
+    "category": "Front Running",
+    "price": "$160",
+    "description": "40% staff discount, applied before you knew about the sale."
+  },
+  {
+    "name": "Legacy Family Mug",
+    "category": "Gifts for Family",
+    "price": "$16",
+    "description": "Holds 12 oz. Holds steady."
+  },
+  {
+    "name": "Family Photo Frame",
+    "category": "Gifts for Family",
+    "price": "$22",
+    "description": "Comes with a sample photo of a Legacy family. Many employees keep it in."
+  }
+]

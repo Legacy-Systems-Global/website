@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f5f3ef" />
+  <meta name="description" content="Legacy Systems — The world’s primary holding corporation." />
+  <title>Legacy Systems — The World's Primary Holding Corporation</title>
+  <style>
+    /* === EDIT THE DESIGN HERE =======================================
+       Colors and type are collected in :root for easy iteration.
+       Swap images in the /assets folder, or edit the HTML copy below.
+       ================================================================ */
+    :root {
+      --paper: #f6f4f0;
+      --paper-deep: #eceae4;
+      --ink: #242420;
+      --subtle: #5b5a56;
+      --muted: #7e7c76;
+      --line: #d9d6cf;
+      --warm-accent: #ab9b87; /* neutral stone: no orange */
+      --serif: 'Iowan Old Style', 'Baskerville', 'GFS Didot', 'Times New Roman', Georgia, serif;
+      --sans: 'Helvetica Neue', 'Arial', sans-serif;
+      --gutter: clamp(24px, 3.8vw, 56px);
+    }
+    *,*::before,*::after { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--paper); color:var(--ink); -webkit-font-smoothing:antialiased; }
+    a { color:inherit; text-decoration:none; }
+    button { font:inherit; cursor:pointer; }
+    button:focus-visible,a:focus-visible,input:focus-visible { outline:2px solid var(--warm-accent); outline-offset:4px; }
+    .site-header { display:grid; grid-template-columns:minmax(246px,1fr) auto minmax(246px,1fr); align-items:center; min-height:76px; gap:24px; padding:0 var(--gutter); background:#faf9f6; border-bottom:1px solid rgba(34,33,31,.065); }
+    .brand { display:inline-flex; align-items:center; justify-self:start; }
+    .brand img { display:block; width:243px; max-width:100%; height:auto; }
+    .primary-nav { display:flex; align-items:center; justify-content:center; gap:37px; }
+    .micro { font-family:var(--sans); font-weight:600; font-size:10px; letter-spacing:.17em; text-transform:uppercase; }
+    .primary-nav a { white-space:nowrap; transition:opacity .2s; }
+    .primary-nav a:hover,.hero-link:hover,.section-link:hover { opacity:.58; }
+    .header-right { display:flex; align-items:center; justify-self:end; gap:23px; white-space:nowrap; }
+    .status { display:inline-flex; align-items:center; gap:11px; }
+    .status-dot { background:var(--warm-accent); width:7px; height:7px; border-radius:50%; }
+    .header-divider { width:1px; height:23px; background:var(--line); }
+    /* Audience selector: interface only; destination pages are not configured yet. */
+    .visually-hidden { position:absolute!important; width:1px!important; height:1px!important; padding:0!important; margin:-1px!important; overflow:hidden!important; clip:rect(0,0,0,0)!important; white-space:nowrap!important; border:0!important; }
+    .audience-label { color:var(--muted); font-size:9px; letter-spacing:.12em; }
+    .audience-control { position:relative; flex:0 0 auto; }
+    .audience-select { -webkit-appearance:none; appearance:none; display:block; width:166px; height:37px; padding:0 32px 0 12px; border:1px solid var(--line); border-radius:3px; background:var(--paper); color:var(--ink); font-family:var(--sans); font-size:10px; font-weight:600; letter-spacing:.095em; line-height:1.2; text-transform:uppercase; cursor:pointer; transition:border-color .2s, background .2s; }
+    .audience-select:hover { border-color:var(--warm-accent); background:var(--paper-deep); }
+    .audience-select:focus-visible { outline:2px solid var(--warm-accent); outline-offset:3px; }
+    .audience-chevron { position:absolute; right:12px; top:50%; width:13px; height:13px; transform:translateY(-50%); pointer-events:none; color:var(--ink); }
+
+    .icon-button { border:0; background:transparent; width:23px; height:28px; display:inline-grid; place-items:center; color:var(--ink); padding:0; }
+    .icon-button svg { width:18px; height:18px; }
+    .search-panel { display:none; position:absolute; z-index:9; right:var(--gutter); top:65px; width:min(360px,calc(100vw - 40px)); background:#fff; padding:16px; box-shadow:0 16px 40px #27241c25; border:1px solid var(--line); }
+    .search-panel.open { display:block; }
+    .search-panel label { display:block; margin-bottom:10px; }
+    .search-panel input { width:100%; padding:12px; font:14px var(--sans); background:var(--paper); border:1px solid var(--line); color:var(--ink); }
+    .search-panel small { display:block; margin-top:10px; font:12px/1.5 var(--sans); color:var(--muted); }
+    .hero { min-height:485px; overflow:hidden; position:relative; background:linear-gradient(100deg, #eae8e2 0%, #eeece8 42%, #e5e4df 100%); }
+    .hero-art { position:absolute; z-index:0; top:0; bottom:0; right:0; width:66.5%; background:url('assets/hero-architecture.jpg') center center / 100% 100% no-repeat; }
+    /* Editable hero inscription: text and rule sit ABOVE the retouched image. */
+    .hero-art-caption { position:absolute; z-index:1; top:50.5%; left:86.9%; margin:0; color:#e5e2db; font-family:var(--sans); font-size:9px; font-weight:600; line-height:1.85; letter-spacing:.145em; text-transform:uppercase; white-space:nowrap; }
+    .hero-art-caption-rule { position:absolute; z-index:1; top:67.5%; left:calc(86.9% + 10px); height:54px; width:1px; background:rgba(218,216,211,.82); }
+    .hero-copy { position:relative; z-index:1; padding:72px 0 40px calc(var(--gutter) + 27px); width:min(650px, 58%); }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { font-family:var(--serif); font-size:clamp(48px,4.85vw,75px); font-weight:400; line-height:.99; letter-spacing:-.052em; max-width:650px; margin-bottom:30px; }
+    .hero-description { font-family:var(--serif); font-size:clamp(18px,1.48vw,22px); line-height:1.27; letter-spacing:-.012em; max-width:410px; margin-bottom:27px; }
+    .small-rule { width:27px; height:1px; background:#37362f; margin-bottom:12px; }
+    .hero-link,.section-link { display:inline-flex; align-items:center; gap:21px; transition:opacity .2s; }
+    .arrow { font-family:var(--sans); font-size:19px; line-height:.7; font-weight:300; letter-spacing:normal; }
+    .holdings { padding:31px var(--gutter) 33px; scroll-margin-top:28px; }
+    .section-heading { display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; gap:20px; }
+    .section-heading .micro { color:#494845; }
+    .holdings-grid { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:clamp(14px,1.83vw,28px); }
+    .holding { min-width:0; }
+    .holding img { display:block; width:100%; aspect-ratio:197 / 142; object-fit:cover; filter:saturate(.78); }
+    .holding-title { font-family:var(--serif); font-size:clamp(17px,1.52vw,24px); font-weight:400; letter-spacing:-.04em; line-height:1.02; margin:18px 0 10px; min-height:48px; }
+    .holding-desc { font-family:var(--sans); font-weight:500; font-size:10px; line-height:1.55; letter-spacing:.16em; text-transform:uppercase; color:var(--subtle); min-height:32px; margin:0 0 18px; max-width:188px; }
+    .holding-link { display:inline-flex; align-items:center; font:400 18px var(--sans); color:#68665f; line-height:1; transition:transform .2s; }
+    .holding:hover .holding-link { transform:translateX(5px); }
+    .lower { display:grid; grid-template-columns:2.15fr 1fr; gap:50px; padding:14px var(--gutter) 70px; }
+    .letter { display:grid; grid-template-columns:240px 1fr; gap:48px; align-items:start; }
+    .letter-kicker,.principles-kicker { margin-bottom:16px; }
+    .letter h2 { font:400 clamp(30px,2.45vw,40px)/.98 var(--serif); letter-spacing:-.045em; margin:0 0 13px; }
+    .date { color:var(--muted); }
+    .letter-info { padding-top:31px; }
+    .letter-info p { font:clamp(17px,1.3vw,20px)/1.32 var(--serif); color:#6e6c65; margin-bottom:20px; max-width:400px; }
+    .principles { border-left:1px solid var(--line); padding-left:clamp(32px,7.3vw,110px); }
+    .principles ol { list-style:none; margin:0; padding:0; }
+    .principles li { display:grid; grid-template-columns:35px 1fr; gap:11px; font:17px/1.48 var(--serif); color:#626059; }
+    .principles li span { font:15px/1.65 var(--serif); color:#929089; }
+    .site-footer { border-top:1px solid var(--line); margin:0 var(--gutter); padding:22px 0 29px; display:flex; justify-content:space-between; gap:30px; color:#77736e; font:10px var(--sans); letter-spacing:.13em; text-transform:uppercase; }
+    .footer-links { display:flex; gap:20px; }
+    .modal { border:1px solid var(--line); background:var(--paper); padding:35px; color:var(--ink); max-width:460px; width:calc(100% - 40px); box-shadow:0 20px 80px #17171727; }
+    .modal::backdrop { background:#1b1a16a3; backdrop-filter:blur(3px); }
+    .modal h3 { font:400 40px/.98 var(--serif); letter-spacing:-.04em; margin:16px 0 20px; }
+    .modal p { font:19px/1.4 var(--serif); color:var(--subtle); }
+    .modal-close { background:transparent; border:0; position:absolute; right:18px; top:12px; font-size:26px; color:var(--muted); }
+    @media (min-width:1600px) { .hero { min-height:540px; } .hero-copy { padding-top:95px; } }
+    @media (max-width:1100px) {
+      .site-header { grid-template-columns:1fr auto; gap:12px 20px; padding-top:12px; padding-bottom:12px; }
+      .brand img { width:210px; }
+      .primary-nav { grid-column:1 / -1; grid-row:2; justify-content:flex-start; gap:20px; }
+      .header-right { display:flex; grid-column:2; grid-row:1; }
+      .hero-copy { width:63%; padding-left:var(--gutter); }
+      .holdings-grid { grid-template-columns:repeat(3,minmax(0,1fr)); row-gap:30px; }
+      .lower { grid-template-columns:1fr; gap:33px; }
+      .principles { padding:28px 0 0; border-left:0; border-top:1px solid var(--line); }
+    }
+    @media (max-width:680px) {
+      .site-header { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:13px 8px; padding:15px var(--gutter) 15px; }
+      .brand img { width:min(190px,100%); }
+      .header-right { gap:0; }
+      .audience-label,.header-divider,.header-right .icon-button { display:none; }
+      .audience-select { width:151px; height:34px; font-size:9px; letter-spacing:.055em; padding-left:9px; padding-right:23px; }
+      .audience-chevron { right:8px; }
+      .primary-nav { grid-column:1 / -1; flex-wrap:wrap; gap:15px 21px; justify-content:flex-start; margin-top:3px; }
+      .primary-nav a { font-size:9px; }
+      .hero { min-height:670px; }
+      .hero-art { top:310px; width:100%; height:360px; background-size:cover; background-position:center center; opacity:.94; }
+      .hero-art-caption,.hero-art-caption-rule { display:none; }
+      .hero-copy { padding:32px var(--gutter) 0; width:100%; }
+      h1 { max-width:560px; font-size:clamp(44px,10.5vw,62px); margin-bottom:18px; }
+      .hero-description { max-width:430px; font-size:18px; margin-bottom:17px; }
+      .hero-link { display:none; }
+      .holdings { padding-top:24px; }
+      .holdings-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px 14px; }
+      .holding-title { min-height:0; font-size:23px; }
+      .holding-desc { font-size:9px; min-height:0; }
+      .lower { padding-top:12px; padding-bottom:45px; }
+      .letter { grid-template-columns:1fr; gap:5px; }
+      .letter-info { padding-top:0; }
+      .section-heading .micro,.section-link { font-size:9px; }
+      .site-footer { flex-direction:column; gap:14px; }
+    }
+    @media (prefers-reduced-motion:reduce) { html {scroll-behavior:auto;} *,*::before,*::after{transition:none!important;} }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="top">
+    <!-- LOGO: extracted from concept #3 and made transparent. -->
+    <a class="brand" href="#top" aria-label="Legacy Systems homepage"><img src="assets/legacy-logo.png" alt="Legacy Systems" /></a>
+    <nav class="primary-nav micro" aria-label="Main navigation">
+      <a href="#holdings">Holdings</a>
+      <a href="#principles">Our Approach</a>
+      <a href="#letter">Letters</a>
+      <a href="#about">About</a>
+    </nav>
+    <div class="header-right">
+      <label class="audience-label micro" for="audience-select">Audience</label>
+      <div class="audience-control">
+        <select id="audience-select" class="audience-select" aria-label="Choose your audience">
+          <option value="public" selected>General Public</option>
+          <option value="investors">Investors</option>
+          <option value="employees">Employee Portal</option>
+        </select>
+        <svg class="audience-chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3.5 6 4.5 4 4.5-4" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <span id="audience-announcement" class="visually-hidden" aria-live="polite"></span>
+      <span class="header-divider" aria-hidden="true"></span>
+      <button class="icon-button" id="search-toggle" aria-label="Search holdings" aria-expanded="false" aria-controls="search-panel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="7.1"/><path d="m16.2 16.2 5.1 5.1"/></svg>
+      </button>
+    </div>
+    <div class="search-panel" id="search-panel">
+      <label class="micro" for="holdings-search">Search holdings</label>
+      <input id="holdings-search" placeholder="Try ‘Press’ or ‘IC1000’" autocomplete="off" />
+      <small id="search-count">Showing all companies.</small>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="about" aria-labelledby="hero-title">
+      <div class="hero-art" role="group" aria-label="Architectural image and caption">
+        <!-- EDITABLE HERO IMAGE TEXT: change the words or <br> line breaks below. -->
+        <p class="hero-art-caption">Different<br />companies.<br />A longer<br />tomorrow.</p>
+        <span class="hero-art-caption-rule" aria-hidden="true"></span>
+      </div>
+      <div class="hero-copy">
+        <!-- EDIT THIS HEADLINE -->
+        <h1 id="hero-title">The world’s<br />primary holding<br />corporation.</h1>
+        <p class="hero-description">Legacy Systems is a holding company that partners with exceptional businesses, backs unconventional ideas, and gives them time to compound.</p>
+        <div class="small-rule" aria-hidden="true"></div>
+        <a href="#principles" class="hero-link micro">Our Approach <span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="holdings" id="holdings" aria-labelledby="holdings-heading">
+      <div class="section-heading"><h2 id="holdings-heading" class="micro" style="margin:0">Selected Holdings</h2><a href="#holdings" class="section-link micro">View All <span class="arrow" aria-hidden="true">→</span></a></div>
+      <!-- Holding names/descriptions/images are editable in these article elements. -->
+      <div class="holdings-grid">
+        <article class="holding" data-name="Mind Control Press" data-description="Books for a more interesting world.">
+          <img src="assets/mind-control-press.jpg" alt="Close-up of the curved edges of stacked books" />
+          <h3 class="holding-title">Mind Control Press</h3><p class="holding-desc">Books for a more<br />interesting world.</p><a class="holding-link" href="#company-detail" aria-label="More about Mind Control Press">→</a>
+        </article>
+        <article class="holding" data-name="Special Purpose Vehicles" data-description="A home for unusual ideas.">
+          <img src="assets/special-purpose-vehicles.jpg" alt="Angular modernist architectural forms" />
+          <h3 class="holding-title">Special Purpose Vehicles</h3><p class="holding-desc">A home for<br />unusual ideas.</p><a class="holding-link" href="#company-detail" aria-label="More about Special Purpose Vehicles">→</a>
+        </article>
+        <article class="holding" data-name="Front Running" data-description="Infrastructure for what’s next.">
+          <img src="assets/front-running.jpg" alt="Muted warm light trails on a dark background" />
+          <h3 class="holding-title">Front Running</h3><p class="holding-desc">Infrastructure<br />for what’s next.</p><a class="holding-link" href="#company-detail" aria-label="More about Front Running">→</a>
+        </article>
+        <article class="holding" data-name="Just Vitamins" data-description="A healthier, brighter you.">
+          <img src="assets/just-vitamins.jpg" alt="Simple ivory vitamin tablet casting a long shadow" />
+          <h3 class="holding-title">Just Vitamins</h3><p class="holding-desc">A healthier,<br />brighter you.</p><a class="holding-link" href="#company-detail" aria-label="More about Just Vitamins">→</a>
+        </article>
+        <article class="holding" data-name="Liquidity Events" data-description="Second lives for great companies.">
+          <img src="assets/liquidity-events.jpg" alt="Dark textured water surface reflecting silver light" />
+          <h3 class="holding-title">Liquidity Events</h3><p class="holding-desc">Second lives<br />for great companies.</p><a class="holding-link" href="#company-detail" aria-label="More about Liquidity Events">→</a>
+        </article>
+        <article class="holding" data-name="IC1000" data-description="Compute for a more human future.">
+          <img src="assets/ic1000.jpg" alt="A doorway illuminated in a dark room" />
+          <h3 class="holding-title">IC1000</h3><p class="holding-desc">Compute for<br />a more human future.</p><a class="holding-link" href="#company-detail" aria-label="More about IC1000">→</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="lower" aria-label="Letters and principles">
+      <div class="letter" id="letter">
+        <div><p class="letter-kicker micro">Latest Letter</p><h2>The Right<br />Kind of Time</h2><p class="date micro">Apr 8, 2024</p></div>
+        <div class="letter-info"><p>On patience, compounding, and the advantage of building businesses that outlast cycles.</p><a href="mailto:hello@legacysystems.global?subject=The%20Right%20Kind%20of%20Time" class="section-link micro">Request the Letter <span class="arrow" aria-hidden="true">→</span></a></div>
+      </div>
+      <div class="principles" id="principles">
+        <p class="principles-kicker micro">Our Principles</p>
+        <ol><li><span>01</span>Back the unconventional.</li><li><span>02</span>Be permanent-minded.</li><li><span>03</span>Value people over playbooks.</li><li><span>04</span>Help good companies get stranger.</li></ol>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><span>© <span id="year"></span> Legacy Systems</span><nav class="footer-links" aria-label="Footer"><a href="#top">Back to Top</a><a href="mailto:hello@legacysystems.global">Contact</a></nav></footer>
+
+  <dialog class="modal" id="company-detail" aria-labelledby="modal-title">
+    <button class="modal-close" id="modal-close" aria-label="Close">×</button>
+    <p class="micro">Selected Holding</p><h3 id="modal-title"></h3><p id="modal-description"></p>
+    <a class="section-link micro" href="mailto:hello@legacysystems.global?subject=Holding%20Inquiry">Inquire <span class="arrow">→</span></a>
+  </dialog>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Audience view selector. This stores the selected UI state without inventing portal URLs.
+    const audienceSelect = document.getElementById('audience-select');
+    audienceSelect.addEventListener('change', () => {
+      document.documentElement.dataset.audience = audienceSelect.value;
+      const selectedLabel = audienceSelect.options[audienceSelect.selectedIndex].text;
+      document.getElementById('audience-announcement').textContent = `Audience selected: ${selectedLabel}`;
+      document.dispatchEvent(new CustomEvent('legacy:audience-change', { detail: { audience: audienceSelect.value } }));
+    });
+
+    const searchToggle = document.getElementById('search-toggle');
+    const panel = document.getElementById('search-panel');
+    const searchInput = document.getElementById('holdings-search');
+    const cards = [...document.querySelectorAll('.holding')];
+    searchToggle.addEventListener('click', () => {
+      const open = panel.classList.toggle('open');
+      searchToggle.setAttribute('aria-expanded', String(open));
+      if (open) searchInput.focus();
+    });
+    searchInput.addEventListener('input', () => {
+      let visible = 0;
+      cards.forEach(card => {
+        const matches = (card.dataset.name + ' ' + card.dataset.description).toLowerCase().includes(searchInput.value.toLowerCase().trim());
+        card.hidden = !matches;
+        if (matches) visible++;
+      });
+      document.getElementById('search-count').textContent = `${visible} ${visible === 1 ? 'company' : 'companies'} shown.`;
+    });
+    const dialog = document.getElementById('company-detail');
+    cards.forEach(card => card.querySelector('.holding-link').addEventListener('click', event => {
+      event.preventDefault();
+      document.getElementById('modal-title').textContent = card.dataset.name;
+      document.getElementById('modal-description').textContent = card.dataset.description;
+      dialog.showModal();
+    }));
+    document.getElementById('modal-close').addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', e => { if(e.target === dialog) dialog.close(); });
+    document.addEventListener('keydown', e => { if(e.key === 'Escape') {panel.classList.remove('open'); searchToggle.setAttribute('aria-expanded','false');} });
+  </script>
+</body>
+</html>

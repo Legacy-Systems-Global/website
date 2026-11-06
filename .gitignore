@@ -179,3 +179,7 @@ vite.config.ts.timestamp-*
 .DS_Store
 .env*
 !.env.example
+
+# Python content generator cache
+__pycache__/
+*.py[cod]
