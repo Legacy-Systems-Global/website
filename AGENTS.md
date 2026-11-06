@@ -11,14 +11,20 @@ Platform: web · Stack: HTML + Tailwind CSS v4, built with Vite (npm)
 ## Commands
 - Install: `npm install` (CI uses `npm ci`)
 - Run / preview: `npm run dev` (serves at `/website/`, e.g. http://localhost:5173/website/)
-- Build: `npm run build` (static output in `dist/`)
+- Regenerate content: `npm run content` (Python 3, no third-party packages)
+- Build: `npm run build` (regenerates content, then static output in `dist/`)
+- Verify built links/assets: `python3 scripts/verify-site.py`
 - Lint: none configured yet
 - Test: none configured yet
 
 ## Layout
-- `index.html` — the page (Vite entry)
-- `src/main.js` — JS entry; imports `src/style.css`
-- `src/style.css` — Tailwind (`@import "tailwindcss";`)
+- Top-level `*.html` — generated static Vite entries
+- `content/editorial-copy.md` — source copy; `content/layout-source.html` — retained approved layout
+- `content/extensions.css` and `content/experiences.css` — additional page styles
+- `scripts/build-pages.py` — page generator; `scripts/experiences.py` — audience and concept templates
+- `src/experiences.js` — audience navigation, dialogs, stepped assessment, preference/newsletter/contact prototypes
+- `src/site.js` — shared browser interactions; `src/site.css` and `src/products.json` — generated
+- `COPY_REVIEW.md` — editorial decisions and demonstration boundaries
 - `public/` — static files copied as-is
 - `vite.config.js` — Tailwind plugin and `base: '/website/'` (switch to `'/'` if a custom domain is added)
 - `.github/workflows/` — `ci.yml` (build on push/PR), `deploy.yml` (manual Pages deploy from `main`)

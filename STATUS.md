@@ -1,33 +1,55 @@
 # Status
 
-_Last updated: 2026-10-08 17:51 EDT · branch `dev` · commit `5d1726b` (plus this update)_
-_Set up from: Claude Code on Alex's Mac (directly)_
+_Last updated: 2026-11-06 · local branch `dev`_
 
-## Done and verified
-- Repo created: https://github.com/Legacy-Systems-Global/website (public; org is on GitHub Free)
-- Branches `main` and `dev` pushed; `dev` is the default branch
-- `main` protected: PR required (0 approvals), no force-push or deletion, admins can bypass
-- Dependabot alerts + security updates on; version updates target `dev` weekly (npm, GitHub Actions)
-- CI (`npm ci` + `npm run build`) passed on `dev` for the initial commit
-- Production build verified locally: `dist/` with assets under `/website/`
-- GitHub Pages enabled (source: GitHub Actions); `github-pages` environment restricted to `main`
-- Local preview served and returned HTTP 200
+## Current local site
 
-## Preview
+- Checkout: `/Users/alexbloom/Documents/GitHub/website`; origin: `https://github.com/Legacy-Systems-Global/website.git`.
+- Replaced the previous landing page with the supplied edited-source ZIP, then implemented the supplied `LEGACY SYSTEMS.md` copy plan.
+- The original architecture-led layout is preserved and extended into public, subsidiary, investor, employee, store, legal, and raw operating-system pages.
+- All pages are static Vite HTML entries; the existing `/website/` base is retained for GitHub Pages compatibility.
+- Shared page styles: `src/site.css`, generated from `content/layout-source.html` and `content/extensions.css`. Shared interactions: `src/site.js`.
+- Editorial decisions and missing source material: `COPY_REVIEW.md`.
+- Content regeneration: `npm run content`; production build: `npm run build`; built-link verification: `python3 scripts/verify-site.py`.
+
+## Local preview
+
 - Command: `npm run dev -- --host 127.0.0.1 --port 5173 --strictPort`
 - URL: http://127.0.0.1:5173/website/
-- PID / log: 16628 (at setup; may no longer be running) · `~/Library/Logs/website-dev.log`
-- Restart: `cd ~/Documents/GitHub/website && nohup npm run dev -- --host 127.0.0.1 --port 5173 > ~/Library/Logs/website-dev.log 2>&1 &`
+- The preview uses the local GitHub checkout, not the unrelated `Documents/New project` folder.
 
-## Production
-Not deployed. When released it will be at https://legacy-systems-global.github.io/website/ (no custom domain).
-Release: PR `dev` → `main`, then `gh workflow run deploy.yml --ref main`.
+## Validation
 
-## Pending and blockers
-- Custom domain: none chosen; if added, switch `base` in `vite.config.js` to `'/'`
-- Rams.ai GitHub App: not installed (no install URL configured) — add this repo manually
-- Pushing: SSH to GitHub was denied from the setup shell (key not loaded in ssh-agent), so this repo's remote uses HTTPS
-- No lint or tests configured yet
+- Production build passes; all static pages are emitted to `dist/`.
+- Local links, fragment targets, and asset references checked against built output.
+- Browser checks: investor gate, assessment completion, onboarding confirmation, portfolio search, store category filter, cart totals, and demonstration order confirmation.
+- Mobile homepage and subsidiary pages checked at 390px; images load without horizontal overflow.
 
-## Next action
-Landing page (from claude.ai design "Legacy Systems Landing v2") built and merged to `main`; not yet deployed. Open question: contact address — page uses `submit@legacysystems.global` (design linked `touch@`).
+## Demonstration boundaries
+
+No backend or real authentication, employee records, accreditation verification, payment, payroll deduction, or data submission. Audience, investor status, and concept preferences are remembered only in the current tab's session. Assessment, newsletter inputs, voicemail inputs, and cart state are not persisted. Report is a printable reading edition; financial data, archive PDFs, and the complete handbook have not been supplied.
+
+## Release
+
+Changes remain local and uncommitted. No push, merge, or deployment was performed. Continue on `dev`; production remains human-gated through a `dev` → `main` pull request and the manual deployment workflow.
+
+
+## Audience / notification concept pass
+
+- Two-step audience panel, hamburger navigation, investor status dialog and editable chip implemented across polished pages.
+- Stepped LegacyMatch: Begin → eight questions with validation and Back → review → Submit opens the store.
+- Sans-serif body copy, stronger contrast, and generous line-height; serif headings and original architecture layout retained.
+- Notification / unexplained preference, three audience newsletter editions, contact drawer, and phone-tree / voicemail previews implemented locally.
+- Source: `scripts/experiences.py`, `src/experiences.js`, `content/experiences.css`; normal build regenerates all pages.
+- Browser checks completed: public → investors (status dialog) → associates, editable status chip, assessment validation / store navigation, opt-out confirmation, contextual newsletter preview, switchboard branching / voicemail preview, and mobile audience-panel width.
+- Phone number and electronic contact addresses remain unconnected placeholders. No real newsletter, call service, AI phone agent, or account service has been provisioned.
+
+- Global search removed at Alex’s request: no search field in navigation and no query-based portfolio filtering.
+
+## Internal terminal revision
+
+The operating-system index and five internal destinations now share an MS-DOS-style browser terminal. Commands include DIR, CD, TYPE FOUNDERS.TXT, HELP, TREE, CLS, VER, MEM, WHOAMI, DATE, TIME, COLOR, and EXIT. Directory entries are clickable; Up/Down recall commands, Tab completes, F1 shows help. Public subsidiary and governance destinations remain accessible as simulated executables. All commands are browser-only; no host files, shell, credentials, or real records are accessed.
+
+## Release revision — independent preferences and newsletter
+
+System preference is now a bottom banner, with no newsletter content or modal. Choosing either option hides it for the tab; the header preference control and footer preference link reopen it. The newsletter has its own dialog, automatically invited five seconds after page load, once per audience per tab. It waits if another dialog, navigation panel, or active form input would be interrupted. Newsletter and preference choices are independent. No real email subscription service is connected. Production release requested; deployment verification pending.

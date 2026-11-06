@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="theme-color" content="#080a09"/>
+<title>LS-DOS / ROOT — Legacy Systems</title>
+<link rel="stylesheet" href="/src/terminal.css"/>
+</head>
+<body data-directory="ROOT">
+<main class="dos-screen" aria-label="Legacy Systems internal terminal">
+<header class="dos-title">
+<span>LEGACY SYSTEMS (R) NETWORK OPERATING SYSTEM</span>
+<span>LS-DOS 6.22</span>
+</header>
+<section id="terminal-output" role="log" aria-label="Terminal output" aria-live="polite" aria-relevant="additions">
+</section>
+<form id="command-form" autocomplete="off">
+<label id="prompt" for="command-input">C:\LEGACY&gt;</label>
+<input id="command-input" aria-label="Terminal command" type="text" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" maxlength="160" autofocus/>
+</form>
+<noscript>
+<p>JavaScript is required for this terminal. <a href="index.html">Return to the public website</a>.</p>
+</noscript>
+<footer class="dos-footer">
+<div>
+<button data-command="HELP">F1 Help</button>
+<button data-command="DIR">Directory</button>
+<button data-command="CLS">Clear</button>
+<button data-command="EXIT">Exit</button>
+</div>
+<span>LOCAL TERMINAL / READ ONLY</span>
+</footer>
+</main>
+<script type="module" src="/src/terminal.js">
+</script>
+</body>
+</html>

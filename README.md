@@ -1,19 +1,19 @@
 # Legacy Systems Global — Website
 
-The public website for Legacy Systems Global.
+Static multi-page website built with Vite. Local checkout: `~/Documents/GitHub/website`.
 
-## Getting started
-
-```bash
+```sh
 npm install
-npm run dev      # http://localhost:5173/website/
-npm run build    # static output in dist/
+npm run dev -- --host 127.0.0.1 --port 5173 --strictPort
 ```
 
-## Working on it
+Preview: http://127.0.0.1:5173/website/
 
-Day-to-day work happens on `dev`; `main` is production and only changes through pull requests. See [AGENTS.md](AGENTS.md) for commands and conventions, [PROJECT.md](PROJECT.md) for the brief, and [STATUS.md](STATUS.md) for where things stand.
+```sh
+npm run build
+python3 scripts/verify-site.py
+```
 
-## License
+Python 3 is used for dependency-free content generation. Vite emits all top-level HTML entries for direct navigation on GitHub Pages. The `/website/` base is intentional.
 
-[MIT](LICENSE)
+See `COPY_REVIEW.md` for copy decisions, editing instructions, and prototype boundaries. Read `AGENTS.md`, `PROJECT.md`, and `STATUS.md` before making changes. Develop on `dev`; release to production only when explicitly requested.

@@ -6,7 +6,7 @@ The public website for Legacy Systems Global.
 "Create a new project for Legacy Systems" — the organization's website, living in the `Legacy-Systems-Global` GitHub org. No further brief was supplied at setup.
 
 ## Audience and purpose
-The public website for Legacy Systems Global. Specific audience, goals and content are pending.
+The public website for Legacy Systems Global. Fictional institutional holding-company website with separate public, investor, and employee experiences. The public voice is measured corporate language; investor and employee copy retains the supplied institutional satire. See COPY_REVIEW.md for implementation decisions.
 
 ## Platform and stack
 - Platform: web
