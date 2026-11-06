@@ -31,7 +31,7 @@ No backend or real authentication, employee records, accreditation verification,
 
 ## Release
 
-Changes remain local and uncommitted. No push, merge, or deployment was performed. Continue on `dev`; production remains human-gated through a `dev` → `main` pull request and the manual deployment workflow.
+Production is live at https://legacy-systems-global.github.io/website/. Release PR #8 was merged at `88967fd55d90733c0ee9fee1e6b8caabbf9fbb6c`; Pages deployment run `42290028107` succeeded. Homepage and terminal both return HTTP 200 with the released content. Continue on `dev`; production remains human-gated through a `dev` → `main` pull request and the manual deployment workflow.
 
 
 ## Audience / notification concept pass
@@ -52,4 +52,4 @@ The operating-system index and five internal destinations now share an MS-DOS-st
 
 ## Release revision — independent preferences and newsletter
 
-System preference is now a bottom banner, with no newsletter content or modal. Choosing either option hides it for the tab; the header preference control and footer preference link reopen it. The newsletter has its own dialog, automatically invited five seconds after page load, once per audience per tab. It waits if another dialog, navigation panel, or active form input would be interrupted. Newsletter and preference choices are independent. No real email subscription service is connected. Production release requested; deployment verification pending.
+System preference is now a bottom banner, with no newsletter content or modal. Choosing either option hides it for the tab; the header preference control and footer preference link reopen it. The newsletter has its own dialog, automatically invited five seconds after page load, once per audience per tab. It waits if another dialog, navigation panel, or active form input would be interrupted. Newsletter and preference choices are independent. No real email subscription service is connected. Released through PR #8; Pages deployment 42290028107 succeeded. Public homepage and terminal verified HTTP 200. Independent banner and timed newsletter were verified locally.
